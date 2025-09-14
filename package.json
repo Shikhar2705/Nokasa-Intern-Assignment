@@ -6,8 +6,17 @@
   "author": "Shikhar Saxena",
   "type": "commonjs",
   "main": "server.js",
+  "keywords": [
+    "api",
+    "nodejs",
+    "express"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "keyword": "^0.1.1"
   }
 }
