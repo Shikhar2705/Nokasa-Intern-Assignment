@@ -1,10 +1,13 @@
 const createUser = (users, req, res) => {
-    const { id, password } = req.body;
+  const { id, password } = req.body;
 
-  if (users.find((user) => user.id === id)) {
+  if (users.has(id)) {
     return res
       .status(409)
-      .json({ status: "error", message: "User with this phone number already exists." });
+      .json({
+        status: "error",
+        message: "User with this phone number already exists.",
+      });
   }
 
   // Store the new user
@@ -17,7 +20,7 @@ const createUser = (users, req, res) => {
       id: newUser.id,
     },
   });
-}
+};
 
 const getUserById = (users, req, res) => {
   const { id } = req.params;
@@ -51,9 +54,9 @@ const deleteUserById = (users, req, res) => {
     .json({ status: "success", message: "User deleted successfully" });
 };
 
-modules.exports = {
-    createUser,
-    getUserById,
-    getAllUsers,
-    deleteUserById
+module.exports = {
+  createUser,
+  getUserById,
+  getAllUsers,
+  deleteUserById,
 };

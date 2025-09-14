@@ -9,7 +9,7 @@ const {
 
 const { validateUserV1 } = require("../middlewares/validators");
 
-modules.exports = (users) => {
+module.exports = (users) => {
   const router = express.Router();
 
   // Create a new user
@@ -20,4 +20,6 @@ modules.exports = (users) => {
   router.get("/users", getAllUsers.bind(null, users));
   // Delete user by Id
   router.delete("/users/:id", deleteUserById.bind(null, users));
+
+  return router;
 };

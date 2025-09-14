@@ -1,12 +1,13 @@
-const { stat } = require("fs");
-
 const createUser = (users, req, res) => {
   const { id, password } = req.body;
 
-  if (users.find((user) => user.id === id)) {
+  if (users.has(id)) {
     return res
       .status(409)
-      .json({ status: "error", message: "User with this email already exists." });
+      .json({
+        status: "error",
+        message: "User with this email already exists.",
+      });
   }
 
   // Store the new user
@@ -53,9 +54,9 @@ const deleteUserById = (users, req, res) => {
     .json({ status: "success", message: "User deleted successfully" });
 };
 
-modules.exports = {
-    createUser,
-    getUserById,
-    getAllUsers,
-    deleteUserById
+module.exports = {
+  createUser,
+  getUserById,
+  getAllUsers,
+  deleteUserById,
 };

@@ -43,7 +43,7 @@ const validateUserV2 = (req, res, next) => {
     next();
 }
 
-modules.exports = {
+module.exports = {
     validateUserV1,
     validateUserV2
 };
